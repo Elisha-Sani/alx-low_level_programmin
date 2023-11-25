@@ -8,9 +8,7 @@
 
 void print_binary(unsigned long int n)
 {
-	int i = 31;
-
-	if (n >= 2)
+	if (n > 1)
 	{
 		print_binary(n >> 1);
 
