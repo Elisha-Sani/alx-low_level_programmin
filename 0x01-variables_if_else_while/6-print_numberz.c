@@ -1,4 +1,4 @@
-#include <stdio>
+#include <stdio.h>
 /**
  * main - Function that prints out single digit numbers without using char
  * Return: 0 (Success)
