@@ -13,7 +13,7 @@ int create_file(const char *filename, char *text_content)
 {
 	int fd;
 	int write_count;
-	int length = 0;
+	int nletters;
 
 	if (filename == NULL)
 		return (-1);
@@ -23,18 +23,16 @@ int create_file(const char *filename, char *text_content)
 	if (fd == -1)
 		return (-1);
 
-	if (text_content != NULL)
-	{
-		while (text_content[length])
-			length++;
+	if (!text_content)
+		text_content = "";
 
-		write_count = write(fd, text_count, length);
-		if (write_count == -1 || write_count != length)
-		{
-			close(fd);
-			return (-1);
-		}
-	}
+	for (nletters = 0; text_content[nletters];)
+		nletters++;
+
+	write_count = write(fd, text_count, nletters);
+
+	if (write_count == -1)
+		return (-1);
 
 	close(fd);
 
