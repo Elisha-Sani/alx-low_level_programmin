@@ -1,5 +1,5 @@
 #include "main.h"
-#include <fnctl.h>
+#include <fcntl.h>
 #include <unistd.h>
 
 /**
