@@ -1,7 +1,7 @@
 #include "main.h"
 #include <unistd.h>
 #include <stdlib.h>
-#include <fcnt1.h>
+#include <fcntl.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 
@@ -40,7 +40,8 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	}
 	lenw = write(STDOUT_FILENO, buffer, lenr);
 	free(buffer);
-	if (lenr != lenw)
+	if (lenw == -1 || lenr != lenw)
+		free(buffer);
 		return (0);
 	return (lenw);
 }
