@@ -27,9 +27,9 @@ int create_file(const char *filename, char *text_content)
 	for (nletters = 0; text_content[nletters];)
 		nletters++;
 
-	wc = write(fd, text_count, nletters);
+	wc = write(fd, text_content, nletters);
 
-	if (wc == -1 || w == -1)
+	if (fd == -1 || wc == -1)
 		return (-1);
 
 	close(fd);
